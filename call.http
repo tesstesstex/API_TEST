@@ -1,5 +1,9 @@
 #######
 ### METHOD NOT ALLOWED
+GET http://localhost:5000/api/item
+
+#######
+### METHOD NOT ALLOWED
 GET http://localhost:5000/api/v1/user
 Authorization: Bearer YOUR_TOKEN
 

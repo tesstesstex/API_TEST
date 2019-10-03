@@ -6,6 +6,13 @@ app = Flask(__name__)
 TOKEN = 'YOUR_TOKEN'
 
 
+@app.route('/api/item', methods=['GET'])
+def get_item():
+    item = {"item_name": 'hogehoge'}
+
+    return jsonify(item)
+
+
 @app.route('/api/v1/user', methods=['POST'])
 def add_user():
     # check token
