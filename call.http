@@ -1,0 +1,46 @@
+#######
+### METHOD NOT ALLOWED
+GET http://localhost:5000/api/v1/user
+Authorization: Bearer YOUR_TOKEN
+
+#######
+### FORBIDDEN
+POST http://localhost:5000/api/v1/user
+Authorization: Bearer MY_TOKEN
+Content-Type: multipart/form-data; boundary=HOGEHOGEBOUNDARY
+
+--HOGEHOGEBOUNDARY
+Content-Disposition: form-data; name=user_name
+
+SAKAMOTO RYOMA
+--HOGEHOGEBOUNDARY
+Content-Disposition: form-data; name=user_email
+
+ryoma.sakamoto@...
+--HOGEHOGEBOUNDARY
+Content-Disposition: form-data; name="file"; filename="face.png"
+Content-Type: application/octet-stream
+
+< ./face.png
+--HOGEHOGEBOUNDARY--
+
+#######
+### OK
+POST http://localhost:5000/api/v1/user
+Authorization: Bearer YOUR_TOKEN
+Content-Type: multipart/form-data; boundary=HOGEHOGEBOUNDARY
+
+--HOGEHOGEBOUNDARY
+Content-Disposition: form-data; name=user_name
+
+SAKAMOTO RYOMA
+--HOGEHOGEBOUNDARY
+Content-Disposition: form-data; name=user_email
+
+ryoma.sakamoto@...
+--HOGEHOGEBOUNDARY
+Content-Disposition: form-data; name="file"; filename="face.png"
+Content-Type: application/octet-stream
+
+< ./face.png
+--HOGEHOGEBOUNDARY--
