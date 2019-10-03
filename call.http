@@ -1,5 +1,5 @@
 #######
-### METHOD NOT ALLOWED
+### GET item
 GET http://localhost:5000/api/item
 
 #######
