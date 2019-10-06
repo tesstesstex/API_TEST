@@ -17,8 +17,11 @@ def get_item():
 def add_user():
     # check token
     header = request.headers.get('Authorization', None)
-    _, token = header.split()
-    if token != TOKEN:
+    if header is not None:
+        _, token = header.split()
+        if token != TOKEN:
+            return jsonify({'Forbidden': 'Access is denied'}), 403
+    else:
         return jsonify({'Forbidden': 'Access is denied'}), 403
 
     # method check
